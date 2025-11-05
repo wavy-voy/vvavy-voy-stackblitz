@@ -61,8 +61,7 @@ export const project: ProjectConfig = {
       ],
     },
     {
-      type: SectionType.GRID,
-      layout: LayoutType.THREE_COLUMN,
+      type: SectionType.SINGLE,
       items: [
         'https://res.cloudinary.com/dharnuji1/video/upload/v1761379180/rope_tool_2_00000380_crf30_width1280_ox2wxn.webm',
       ],

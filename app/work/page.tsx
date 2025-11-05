@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import VideoSection from '@/components/VideoSection/VideoSection';
 import ProjectGrid from '@/components/ProjectGrid/ProjectGrid';
 import { Footer } from '@/components/Footer/Footer';
+import React, { useRef, useEffect } from 'react';
 
 const ReactFullpage = dynamic(() => import('@fullpage/react-fullpage'), {
   ssr: false,
@@ -14,13 +15,23 @@ const videoSources = [
 ];
 
 export default function WorkPage() {
+  const fullpageApiRef = useRef<any>(null);
+
+  useEffect(() => {
+    // Scroll to first section on mount (page revisit)
+    if (fullpageApiRef.current) {
+      fullpageApiRef.current.moveTo(1);
+    }
+  }, []);
+
   return (
     <ReactFullpage
       credits={{}}
       scrollingSpeed={1000}
       navigation
-      render={() => (
-        <div id="fullpage-wrapper">
+    render={({ state, fullpageApi }) => {
+      fullpageApiRef.current = fullpageApi; // assign to ref
+        return (<div id="fullpage-wrapper">
           <div className="section">
             <VideoSection videoUrl={videoSources[0]} />
           </div>
@@ -30,8 +41,8 @@ export default function WorkPage() {
           <div className="section">
             <Footer />
           </div>
-        </div>
-      )}
+        </div>)
+    }}
     />
   );
 }

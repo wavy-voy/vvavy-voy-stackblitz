@@ -5,7 +5,8 @@ import { Footer } from '@/components/Footer/Footer';
 import { Hero } from '@/components/Hero/Hero';
 import VideoSection from '@/components/VideoSection/VideoSection';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import React from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const ReactFullpage = dynamic(() => import('@fullpage/react-fullpage'), {
   ssr: false,
@@ -20,6 +21,15 @@ const videoSources = [
 export default function Home() {
   const [heroAnimated, setHeroAnimated] = useState(false);
 
+  const fullpageApiRef = useRef<any>(null);
+
+  useEffect(() => {
+    // Scroll to first section on mount (page revisit)
+    if (fullpageApiRef.current) {
+      fullpageApiRef.current.moveTo(1);
+    }
+  }, []);
+
   return (
     <ReactFullpage
       credits={{}} // required to suppress warning
@@ -33,6 +43,7 @@ export default function Home() {
         }
       }}
       render={({ state, fullpageApi }) => {
+        fullpageApiRef.current = fullpageApi; // assign to ref
         return (
           <div id="fullpage-wrapper">
             <div className="section">
