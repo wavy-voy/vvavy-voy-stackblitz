@@ -9,7 +9,7 @@ import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
 
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'], // zależnie czego używasz w Figma
+  weight: ['400', '500', '600', '700'],
   variable: '--font-ibm',
 });
 
