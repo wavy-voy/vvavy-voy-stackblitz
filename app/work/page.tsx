@@ -37,6 +37,8 @@ export default function WorkPage() {
           </div>
           <div className="section">
             <ProjectGrid />
+          </div>
+          <div className="section">
             <Footer />
           </div>
         </div>)
