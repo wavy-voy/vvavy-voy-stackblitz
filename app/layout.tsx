@@ -15,7 +15,10 @@ export const metadata: Metadata = {
   title: 'VVAVY Studio',
   description: 'VVAVY is a studio for art & tech.',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16' },
+      { url: '/favicon.ico', sizes: '32x32' }
+    ],
   },
 };
 

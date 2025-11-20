@@ -29,6 +29,8 @@ export default function WorkPage() {
       credits={{}}
       scrollingSpeed={1000}
       navigation
+      autoScrolling={true} // enables fullpage scrolling
+      fitToSection={true} // snap to section
     render={({ state, fullpageApi }) => {
       fullpageApiRef.current = fullpageApi; // assign to ref
         return (<div id="fullpage-wrapper">

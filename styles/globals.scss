@@ -56,6 +56,154 @@ body {
   font-size: $font-size-body;
   color: $text-black;
   background-color: black;
+  background: orange !important; // DEBUG: Body background
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+  // Hide scrollbar for Chrome, Safari and Opera
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  // Hide scrollbar for IE, Edge and Firefox
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+// Fix scrollbar area - hide scrollbar with CSS
+html {
+  background: green !important; // DEBUG: HTML background
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 100%;
+  
+  // Hide scrollbar for Chrome, Safari and Opera
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  // Hide scrollbar for IE, Edge and Firefox
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+// Force hide scrollbars on all fullpage elements
+.fp-enabled {
+  overflow: hidden !important;
+}
+
+.fp-section {
+  overflow: hidden !important;
+}
+
+#fullpage-wrapper {
+  overflow: hidden !important;
+}
+
+// Mobile specific scrollbar hiding
+@media (max-width: 768px) {
+  html, body {
+    width: 100vw !important; // Use viewport width
+    margin: 0 !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  #fullpage-wrapper {
+    width: 100vw !important;
+    margin: 0 !important;
+  }
+  
+  .fp-enabled,
+  .fp-section,
+  .section {
+    overflow: hidden !important;
+    width: 100vw !important;
+  }
+}
+
+.fp-enabled {
+  background: yellow !important; // DEBUG: Fullpage enabled
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.fp-section {
+  background: purple !important; // DEBUG: Sections
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+}
+
+.fp-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+#fullpage-wrapper {
+  background: pink !important; // DEBUG: Wrapper
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.section {
+  background: lightblue !important; // DEBUG: Section divs
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+// Universal scrollbar hiding
+* {
+  // Hide scrollbar for Chrome, Safari and Opera
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  // Hide scrollbar for IE, Edge and Firefox
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+// Target only the gallery section specifically
+.section:nth-child(2) {
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: visible !important; // Allow content to overflow if needed
+}
+
+// Keep footer section normal
+.section:last-child {
+  min-height: auto !important;
+  height: auto !important;
+  display: block !important;
+  overflow: hidden !important;
+}
+
+// Force all containers
+* {
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 h1,
