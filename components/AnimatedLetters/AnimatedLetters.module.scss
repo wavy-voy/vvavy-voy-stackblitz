@@ -1,27 +1,69 @@
 .wrapper {
   position: relative;
-  height: 8rem;
+  height: 20rem;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin: 4rem 0;
+  padding: 0 2rem;
+  overflow: hidden;
+  will-change: transform;
+  
+  @media (max-width: 768px) {
+    padding: 0 0 0 4rem; // Remove right padding, keep negative left padding
+  }
 }
 
 .inner {
   position: relative;
   height: 100%;
-  width: 600px;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  will-change: transform;
+  padding-left: 2rem;
+  
+  @media (max-width: 768px) {
+    padding-left: 0; // Remove left padding on mobile to align to edge
+  }
 }
 
 .letter {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 8rem;
-  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  font-size: 10rem;
+  font-weight: 900;
   color: white;
-
-  @media (max-width: 540px) {
+  line-height: 1;
+  will-change: transform, opacity;
+  transform-origin: left center;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  margin-right: -0.8rem;
+  opacity: 0;
+  transform: translateX(-20px) scale(0.8);
+  transition: none;
+  
+  @media (max-width: 1024px) {
+    font-size: 8rem;
+  }
+  
+  @media (max-width: 768px) {
     font-size: 6rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 4.5rem;
+  }
+  
+  @media (max-width: 360px) {
+    font-size: 3.5rem;
+  }
+}
+
+.edgeLetter {
+  @media (max-width: 768px) {
+    margin-left: -2rem !important; // Push specific letters to the edge on mobile
   }
 }

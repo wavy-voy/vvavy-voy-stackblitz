@@ -9,6 +9,10 @@ const nextConfig = {
       },
     ],
   },
+  // Bind to all interfaces for mobile hotspot access
+  serverRuntimeConfig: {
+    hostname: '0.0.0.0'
+  }
 };
 
 module.exports = nextConfig;
